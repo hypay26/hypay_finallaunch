@@ -1,9 +1,11 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { DottedGlobe } from "../primitives/DottedGlobe";
 import { NotificationCard } from "../primitives/NotificationCard";
 import { OrbitArc } from "../primitives/OrbitArc";
 
-const container = {
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+const container: Variants = {
   initial: { opacity: 0 },
   animate: {
     opacity: 1,
@@ -11,9 +13,9 @@ const container = {
   },
   exit: { opacity: 0, transition: { duration: 0.4 } },
 };
-const item = {
+const item: Variants = {
   initial: { opacity: 0, y: 24 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
   exit: { opacity: 0, y: -12, transition: { duration: 0.35 } },
 };
 
