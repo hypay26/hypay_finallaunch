@@ -1,0 +1,73 @@
+import type { MotionValue } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
+import type { ReactNode } from "react";
+
+interface Props {
+  children: ReactNode;
+  progress: MotionValue<number>;
+}
+
+export function DeviceFrame({ children, progress }: Props) {
+  // Camera-like drift as user scrolls
+  const rotateY = useTransform(progress, [0, 1], [-24, -14]);
+  const rotateX = useTransform(progress, [0, 1], [20, 14]);
+  const rotateZ = useTransform(progress, [0, 1], [-6, -3]);
+  const scale = useTransform(progress, [0, 0.5, 1], [1, 1.03, 1]);
+
+  return (
+    <div
+      className="pointer-events-none absolute inset-0 flex items-center justify-center"
+      style={{ perspective: "2200px" }}
+    >
+      <motion.div
+        className="relative"
+        style={{
+          rotateY,
+          rotateX,
+          rotateZ,
+          scale,
+          transformStyle: "preserve-3d",
+          width: "min(1100px, 82vw)",
+          aspectRatio: "16 / 10",
+        }}
+      >
+        {/* device shadow */}
+        <div
+          className="absolute inset-x-10 -bottom-16 h-24 rounded-[100%] blur-3xl"
+          style={{ background: "oklch(0 0 0 / 0.7)" }}
+        />
+
+        {/* bezel */}
+        <div
+          className="absolute inset-0 rounded-[28px] p-[10px]"
+          style={{
+            background:
+              "linear-gradient(135deg, oklch(0.28 0.02 275), oklch(0.14 0.015 275))",
+            boxShadow:
+              "var(--shadow-device), inset 0 1px 0 oklch(1 0 0 / 0.08), inset 0 -1px 0 oklch(0 0 0 / 0.6)",
+          }}
+        >
+          {/* screen */}
+          <div
+            className="pointer-events-auto relative h-full w-full overflow-hidden rounded-[20px]"
+            style={{
+              background: "var(--gradient-screen)",
+              boxShadow: "inset 0 0 60px oklch(0 0 0 / 0.6)",
+            }}
+          >
+            {children}
+
+            {/* screen glare */}
+            <div
+              className="pointer-events-none absolute inset-0 rounded-[20px]"
+              style={{
+                background:
+                  "linear-gradient(115deg, oklch(1 0 0 / 0.06) 0%, transparent 30%, transparent 70%, oklch(1 0 0 / 0.03) 100%)",
+              }}
+            />
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
