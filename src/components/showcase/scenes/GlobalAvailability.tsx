@@ -22,12 +22,12 @@ export function GlobalAvailability() {
         exit="exit"
       >
         <div className="text-[64px] font-medium leading-none tracking-tight md:text-[80px]">
-          <CountUp to={100} suffix="%" />
+          <CountUp to={6.7} suffix="%" format={(v) => v.toFixed(1)} />
         </div>
         <p className="text-[13px] text-muted-foreground">
-          global cross-border
+          average hidden markup
           <br />
-          availability
+          travelers pay per transaction
         </p>
         <div
           className="mt-3 h-14 w-14 rounded-full border"
@@ -71,11 +71,10 @@ export function GlobalAvailability() {
         exit="exit"
       >
         <p className="text-[11px] leading-relaxed text-muted-foreground md:text-[12px]">
-          Bypass the complexities and high costs of international wire transfers
-          and card payments, which can take days and incur hefty fees. With
-          crypto, sending funds across borders is as simple as sending a
-          message — completing in under a second, with minimal fees regardless
-          of distance.
+          International wire transfers and card payments abroad are slow,
+          expensive, and opaque. HYPAY is built to make moving money across
+          borders as simple as sending a message — transparent fees, instant
+          confirmation, no matter where you are.
         </p>
       </motion.div>
 
@@ -89,7 +88,7 @@ export function GlobalAvailability() {
             className="h-1.5 w-1.5 rounded-full"
             style={{ background: "oklch(0.72 0.22 305)", boxShadow: "0 0 8px oklch(0.72 0.22 305)" }}
           />
-          BRIDGING WEB2 AND WEB3
+          LAUNCHING SOON
         </div>
       </div>
     </div>

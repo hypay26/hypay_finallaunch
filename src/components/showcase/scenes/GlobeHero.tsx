@@ -32,11 +32,9 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
       >
         <div className="relative">
           <DottedGlobe size={640} />
-          {withNotification && (
-            <div className="pointer-events-none absolute inset-0">
-              <OrbitArc size={640} rx={340} ry={90} rotate={-14} duration={5} />
-            </div>
-          )}
+          <div className="pointer-events-none absolute inset-0">
+            <OrbitArc size={640} rx={340} ry={90} rotate={-14} duration={5} />
+          </div>
         </div>
       </motion.div>
 
@@ -52,24 +50,23 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
           variants={item}
           className="text-glow text-[54px] font-medium leading-[1.02] tracking-tight md:text-[64px]"
         >
-          Cross-border
+          Travel money,
           <br />
-          finance
+          without the markup
         </motion.h1>
         <motion.p
           variants={item}
           className="mx-auto mt-4 max-w-[440px] text-[13px] leading-relaxed text-muted-foreground md:text-[14px]"
         >
-          Accept payments, manage and custody your assets with ease,
-          enjoy seamless on/off-ramping between cryptocurrencies and fiat,
-          and explore integrated eCommerce solutions.
+          Spend, pay, and move money across borders — instantly, transparently,
+          and without the 3–7% you're losing to hidden fees today.
         </motion.p>
         <motion.div variants={item} className="mt-6 flex items-center justify-center gap-2.5">
           <button
             className="rounded-full px-4 py-2 text-[12px] font-medium"
             style={{ background: "oklch(0.97 0.005 270)", color: "oklch(0.16 0.02 275)" }}
           >
-            Get Started →
+            Join the Waitlist →
           </button>
           <button
             className="rounded-full border px-4 py-2 text-[12px]"
