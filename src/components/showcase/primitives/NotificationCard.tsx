@@ -27,8 +27,8 @@ export function NotificationCard() {
         </svg>
       </div>
       <div className="flex flex-col leading-tight">
-        <span className="text-[13px] font-semibold text-foreground">Product Bought</span>
-        <span className="text-[11px] text-muted-foreground">1.2 SOL · $182</span>
+        <span className="text-[13px] font-semibold text-foreground">You Saved</span>
+        <span className="text-[11px] text-muted-foreground">$57 on this trip</span>
       </div>
       <motion.div
         className="pointer-events-none absolute inset-0 overflow-hidden rounded-full"
