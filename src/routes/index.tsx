@@ -4,10 +4,10 @@ import { Showcase } from "@/components/showcase/Showcase";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nebula — Borderless Commerce, In Motion" },
-      { name: "description", content: "A cinematic showcase of Nebula's borderless payments platform: cross-border finance, global availability, and a store engine built for the next web." },
-      { property: "og:title", content: "Nebula — Borderless Commerce" },
-      { property: "og:description", content: "Cross-border finance, global availability, and a store engine for the next web." },
+      { title: "HYPAY — Travel money, without the markup" },
+      { name: "description", content: "HYPAY is the travel payments app that removes hidden fees and delays. Spend, pay, and move money across borders — transparent, instant, everywhere. Join the waitlist." },
+      { property: "og:title", content: "HYPAY — Travel money, without the markup" },
+      { property: "og:description", content: "Spend, pay, and move money across borders — instantly, transparently, without the 3–7% you're losing today. Early access opens soon." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
