@@ -7,21 +7,22 @@ import { GlobeHero } from "./scenes/GlobeHero";
 import { GlobalAvailability } from "./scenes/GlobalAvailability";
 import { EmpowerStore } from "./scenes/EmpowerStore";
 import { InNumbers } from "./scenes/InNumbers";
+import { ClosingWaitlist } from "./scenes/ClosingWaitlist";
 
-const SCENES = ["hero", "notify", "availability", "empower", "numbers"] as const;
+const SCENES = ["hero", "availability", "problem", "numbers", "waitlist"] as const;
 
 function SceneRenderer({ scene }: { scene: string }) {
   switch (scene) {
     case "hero":
-      return <GlobeHero />;
-    case "notify":
       return <GlobeHero withNotification />;
     case "availability":
       return <GlobalAvailability />;
-    case "empower":
+    case "problem":
       return <EmpowerStore />;
     case "numbers":
       return <InNumbers />;
+    case "waitlist":
+      return <ClosingWaitlist />;
     default:
       return null;
   }
