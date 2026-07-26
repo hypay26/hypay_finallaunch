@@ -17,9 +17,9 @@ const item: Variants = {
 
 export function AboutUs() {
   return (
-    <div className="relative h-full w-full px-6 pt-14 md:px-12">
+    <div className="relative w-full px-5 pt-16 pb-16 sm:px-6 lg:h-full lg:px-12 lg:pt-14 lg:pb-0">
       <motion.div
-        className="flex h-full flex-col justify-between pb-6"
+        className="flex flex-col lg:h-full lg:justify-between pb-6 gap-10 lg:gap-0"
         variants={container}
         initial="initial"
         animate="animate"
@@ -32,7 +32,7 @@ export function AboutUs() {
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#10b981]" />
               Who We Are
             </div>
-            <h2 className="text-[32px] font-medium leading-none tracking-tight md:text-[42px]">
+            <h2 className="text-[26px] sm:text-[32px] font-medium leading-none tracking-tight lg:text-[42px]">
               About Us
             </h2>
           </div>

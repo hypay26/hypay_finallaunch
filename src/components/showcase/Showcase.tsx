@@ -1,4 +1,3 @@
-// import { AnimatePresence, useScroll, useTransform, motion, useMotionValueEvent } from "framer-motion";
 import { useScroll, useTransform, motion, useMotionValueEvent } from "framer-motion";
 import { useRef, useState } from "react";
 import { DeviceFrame } from "./DeviceFrame";
@@ -10,6 +9,7 @@ import { EmpowerStore } from "./scenes/EmpowerStore";
 import { InNumbers } from "./scenes/InNumbers";
 import { AboutUs } from "./scenes/AboutUs";
 import { ClosingWaitlist } from "./scenes/ClosingWaitlist";
+import { useIsTabletOrBelow } from "@/hooks/use-screen-size";
 
 const SCENES = [
   { key: "hero", render: () => <GlobeHero withNotification /> },
@@ -20,13 +20,13 @@ const SCENES = [
   { key: "waitlist", render: () => <ClosingWaitlist /> },
 ] as const;
 
-export function Showcase() {
+/** Desktop: sticky scroll experience with 3D DeviceFrame */
+function DesktopShowcase() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
   const [index, setIndex] = useState(0);
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    // Round to nearest scene (less flicker at boundaries than floor)
     const raw = Math.round(v * (SCENES.length - 1));
     const i = Math.min(SCENES.length - 1, Math.max(0, raw));
     if (i !== index) setIndex(i);
@@ -41,9 +41,6 @@ export function Showcase() {
 
         <DeviceFrame progress={progress}>
           <ScreenChrome />
-          {/* Keep every scene mounted; cross-fade by opacity so interactive
-              elements (e.g. the waitlist email input) don't get unmounted
-              mid-keystroke when scroll noise flips the active index. */}
           <motion.div
             key={SCENES[index].key}
             className="absolute inset-0 z-20 pt-14"
@@ -80,4 +77,65 @@ export function Showcase() {
       </div>
     </div>
   );
+}
+
+/** Mobile/Tablet: each scene is a fullscreen section, no DeviceFrame */
+function MobileShowcase() {
+  return (
+    <div className="relative w-full" style={{ background: "var(--gradient-studio)" }}>
+      {/* Single fixed starfield-style background — avoids re-mounting per section */}
+      <div className="pointer-events-none fixed inset-0 z-0" style={{ background: "var(--gradient-studio)" }}>
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "radial-gradient(ellipse at 50% 55%, oklch(0.5 0.2 145 / 0.18) 0%, transparent 55%)",
+          }}
+        />
+      </div>
+
+      {/* Persistent nav bar */}
+      <header
+        className="sticky top-0 z-50 flex items-center justify-between px-5 py-3 backdrop-blur-md"
+        style={{
+          background: "oklch(0.16 0.02 145 / 0.85)",
+          borderBottom: "1px solid oklch(1 0 0 / 0.07)",
+        }}
+      >
+        <img src="/logo.png" alt="HYPAY" className="h-8 w-auto object-contain" />
+        <a
+          href="#waitlist"
+          className="rounded-full px-4 py-1.5 text-[12px] font-medium"
+          style={{ background: "oklch(0.97 0.005 145)", color: "oklch(0.16 0.02 145)" }}
+        >
+          Join Waitlist →
+        </a>
+      </header>
+
+      {SCENES.map(({ key, render }, idx) => (
+        <section
+          id={key === "waitlist" ? "waitlist" : undefined}
+          key={key}
+          className="relative z-10 w-full overflow-hidden"
+          style={{
+            borderTop: idx > 0 ? "1px solid oklch(1 0 0 / 0.06)" : undefined,
+          }}
+        >
+          <div className="relative flex w-full flex-col">
+            {render()}
+          </div>
+        </section>
+      ))}
+    </div>
+  );
+}
+
+
+export function Showcase() {
+  const isTabletOrBelow = useIsTabletOrBelow();
+
+  // Until hydration resolves, render nothing (avoids layout flash).
+  // The hook starts as `undefined` then resolves on first effect.
+  if (isTabletOrBelow === undefined) return null;
+
+  return isTabletOrBelow ? <MobileShowcase /> : <DesktopShowcase />;
 }

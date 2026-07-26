@@ -25,6 +25,10 @@ export function DeviceFrame({ children, progress }: Props) {
           width: "min(1100px, 82vw)",
           aspectRatio: "16 / 10",
           pointerEvents: "auto",
+          rotateX,
+          rotateY,
+          rotateZ,
+          scale,
         }}
       >
 

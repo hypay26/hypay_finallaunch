@@ -123,10 +123,54 @@ function RouteMap() {
 
 export function EmpowerStore() {
   return (
-    <div className="relative h-full w-full overflow-hidden">
+    <div className="relative w-full lg:h-full overflow-hidden">
       <Starfield count={80} className="opacity-70" />
 
-      <div className="relative z-10 grid h-full grid-cols-12 items-center gap-6 px-8 pt-16 md:px-14">
+      {/* ── Mobile / Tablet layout (< lg) ─────────────────────── */}
+      <div className="relative z-10 flex lg:hidden flex-col items-center gap-12 px-6 pt-16 pb-20 text-center">
+        <motion.div variants={fadeUp} initial="initial" animate="animate" exit="exit">
+          <div className="mb-2 text-[10px] tracking-[0.3em] text-muted-foreground">THE PROBLEM</div>
+          <h2 className="text-[36px] sm:text-[44px] font-medium leading-[1.05] tracking-tight">
+            The old way of
+            <br />
+            paying abroad
+            <br />
+            is broken
+          </h2>
+          <p className="mt-3 text-[13px] text-muted-foreground max-w-[340px] mx-auto">
+            Cash, cards, and a dozen apps — each with its own fees, delays,
+            and blind spots. Merchants wait days to get paid. Travelers overpay
+            without knowing it. It's time for one app that just works, everywhere.
+          </p>
+          <button
+            className="mt-5 rounded-full border px-4 py-2 text-[12px]"
+            style={{ borderColor: "oklch(1 0 0 / 0.15)" }}
+          >
+            See the Difference →
+          </button>
+        </motion.div>
+
+        {/* Route map */}
+        <motion.div
+          className="relative w-full max-w-[400px]"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: EASE }}
+        >
+          <div
+            className="pointer-events-none absolute inset-0 rounded-full"
+            style={{
+              background: "radial-gradient(ellipse at 50% 50%, oklch(0.72 0.22 145 / 0.25), transparent 70%)",
+              filter: "blur(20px)",
+            }}
+          />
+          <RouteMap />
+        </motion.div>
+      </div>
+
+      {/* ── Desktop layout (lg+) — original side-by-side ───────── */}
+      <div className="relative z-10 hidden lg:grid h-full grid-cols-12 items-center gap-6 px-8 pt-16 md:px-14">
         {/* left copy */}
         <motion.div className="col-span-5" variants={fadeUp} initial="initial" animate="animate" exit="exit">
           <div className="mb-3 text-[10px] tracking-[0.3em] text-muted-foreground">THE PROBLEM</div>
