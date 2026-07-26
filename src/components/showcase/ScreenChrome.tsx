@@ -14,23 +14,7 @@ export function ScreenChrome() {
           <span>FAQ</span>
           <span>Contact Sales</span>
         </nav> */}
-        <div className="flex items-center gap-2">
-          <button className="rounded-full border px-3.5 py-1.5 text-[11px] text-foreground/90" style={{ borderColor: "oklch(1 0 0 / 0.12)" }}>
-            Contact
-          </button>
-          <button
-            className="rounded-full px-3.5 py-1.5 text-[11px] font-medium cursor-pointer"
-            style={{ background: "oklch(0.97 0.005 145)", color: "oklch(0.16 0.02 145)" }}
-            onClick={() => {
-              window.scrollTo({
-                top: document.documentElement.scrollHeight,
-                behavior: "smooth"
-              });
-            }}
-          >
-            Get Early Access →
-          </button>
-        </div>
+
       </div>
     </>
   );
