@@ -42,7 +42,7 @@ export function DeviceFrame({ children, progress }: Props) {
           className="absolute inset-0 rounded-[28px] p-[10px]"
           style={{
             background:
-              "linear-gradient(135deg, oklch(0.28 0.02 275), oklch(0.14 0.015 275))",
+              "linear-gradient(135deg, oklch(0.28 0.02 145), oklch(0.14 0.015 145))",
             boxShadow:
               "var(--shadow-device), inset 0 1px 0 oklch(1 0 0 / 0.08), inset 0 -1px 0 oklch(0 0 0 / 0.6)",
           }}
@@ -55,9 +55,7 @@ export function DeviceFrame({ children, progress }: Props) {
               boxShadow: "inset 0 0 60px oklch(0 0 0 / 0.6)",
             }}
           >
-            {children}
-
-            {/* screen glare */}
+            {/* screen glare rendered first to stack behind interactive content */}
             <div
               className="pointer-events-none absolute inset-0 rounded-[20px]"
               style={{
@@ -65,6 +63,8 @@ export function DeviceFrame({ children, progress }: Props) {
                   "linear-gradient(115deg, oklch(1 0 0 / 0.06) 0%, transparent 30%, transparent 70%, oklch(1 0 0 / 0.03) 100%)",
               }}
             />
+
+            {children}
           </div>
         </div>
       </motion.div>

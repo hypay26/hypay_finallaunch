@@ -24,7 +24,7 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
     <div className="relative flex h-full w-full items-center justify-center">
       {/* globe layer */}
       <motion.div
-        className="absolute inset-0 flex items-center justify-center"
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 1.05, opacity: 0 }}
@@ -40,7 +40,7 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
 
       {/* text content */}
       <motion.div
-        className="relative z-10 mx-auto max-w-[560px] px-6 text-center"
+        className="relative z-30 pointer-events-auto mx-auto max-w-[560px] px-6 text-center"
         variants={container}
         initial="initial"
         animate="animate"
@@ -50,21 +50,27 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
           variants={item}
           className="text-glow text-[54px] font-medium leading-[1.02] tracking-tight md:text-[64px]"
         >
-          Travel money,
+          Move money without borders
           <br />
-          without the markup
+
         </motion.h1>
         <motion.p
           variants={item}
           className="mx-auto mt-4 max-w-[440px] text-[13px] leading-relaxed text-muted-foreground md:text-[14px]"
         >
           Spend, pay, and move money across borders — instantly, transparently,
-          and without the 3–7% you're losing to hidden fees today.
+          and without the hidden fees you're losing today.
         </motion.p>
         <motion.div variants={item} className="mt-6 flex items-center justify-center gap-2.5">
           <button
-            className="rounded-full px-4 py-2 text-[12px] font-medium"
-            style={{ background: "oklch(0.97 0.005 270)", color: "oklch(0.16 0.02 275)" }}
+            className="rounded-full px-4 py-2 text-[12px] font-medium cursor-pointer"
+            style={{ background: "oklch(0.97 0.005 145)", color: "oklch(0.16 0.02 145)" }}
+            onClick={() => {
+              window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behavior: "smooth"
+              });
+            }}
           >
             Join the Waitlist →
           </button>

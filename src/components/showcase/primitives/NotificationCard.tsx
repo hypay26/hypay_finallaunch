@@ -9,7 +9,7 @@ export function NotificationCard() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="relative flex items-center gap-3 rounded-full border px-4 py-2.5 backdrop-blur-xl"
       style={{
-        background: "oklch(0.22 0.03 275 / 0.85)",
+        background: "oklch(0.22 0.03 145 / 0.85)",
         borderColor: "oklch(1 0 0 / 0.1)",
         boxShadow: "0 20px 40px -12px oklch(0 0 0 / 0.5), var(--shadow-glow)",
       }}
@@ -18,7 +18,7 @@ export function NotificationCard() {
         className="flex h-8 w-10 items-center justify-center rounded-md"
         style={{
           background:
-            "linear-gradient(135deg, oklch(0.62 0.24 300), oklch(0.72 0.22 305))",
+            "linear-gradient(135deg, oklch(0.62 0.24 145), oklch(0.72 0.22 145))",
         }}
       >
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none">

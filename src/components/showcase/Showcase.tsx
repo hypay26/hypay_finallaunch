@@ -1,4 +1,5 @@
-import { AnimatePresence, useScroll, useTransform, motion, useMotionValueEvent } from "framer-motion";
+// import { AnimatePresence, useScroll, useTransform, motion, useMotionValueEvent } from "framer-motion";
+import { useScroll, useTransform, motion, useMotionValueEvent } from "framer-motion";
 import { useRef, useState } from "react";
 import { DeviceFrame } from "./DeviceFrame";
 import { StudioBackground } from "./StudioBackground";
@@ -7,26 +8,17 @@ import { GlobeHero } from "./scenes/GlobeHero";
 import { GlobalAvailability } from "./scenes/GlobalAvailability";
 import { EmpowerStore } from "./scenes/EmpowerStore";
 import { InNumbers } from "./scenes/InNumbers";
+import { AboutUs } from "./scenes/AboutUs";
 import { ClosingWaitlist } from "./scenes/ClosingWaitlist";
 
-const SCENES = ["hero", "availability", "problem", "numbers", "waitlist"] as const;
-
-function SceneRenderer({ scene }: { scene: string }) {
-  switch (scene) {
-    case "hero":
-      return <GlobeHero withNotification />;
-    case "availability":
-      return <GlobalAvailability />;
-    case "problem":
-      return <EmpowerStore />;
-    case "numbers":
-      return <InNumbers />;
-    case "waitlist":
-      return <ClosingWaitlist />;
-    default:
-      return null;
-  }
-}
+const SCENES = [
+  { key: "hero", render: () => <GlobeHero withNotification /> },
+  { key: "availability", render: () => <GlobalAvailability /> },
+  { key: "problem", render: () => <EmpowerStore /> },
+  { key: "numbers", render: () => <InNumbers /> },
+  { key: "about", render: () => <AboutUs /> },
+  { key: "waitlist", render: () => <ClosingWaitlist /> },
+] as const;
 
 export function Showcase() {
   const ref = useRef<HTMLDivElement>(null);
@@ -34,7 +26,9 @@ export function Showcase() {
   const [index, setIndex] = useState(0);
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    const i = Math.min(SCENES.length - 1, Math.max(0, Math.floor(v * SCENES.length)));
+    // Round to nearest scene (less flicker at boundaries than floor)
+    const raw = Math.round(v * (SCENES.length - 1));
+    const i = Math.min(SCENES.length - 1, Math.max(0, raw));
     if (i !== index) setIndex(i);
   });
 
@@ -47,18 +41,28 @@ export function Showcase() {
 
         <DeviceFrame progress={progress}>
           <ScreenChrome />
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={SCENES[index]}
-              className="absolute inset-0 pt-14"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.35 }}
-            >
-              <SceneRenderer scene={SCENES[index]} />
-            </motion.div>
-          </AnimatePresence>
+          {/* Keep every scene mounted; cross-fade by opacity so interactive
+              elements (e.g. the waitlist email input) don't get unmounted
+              mid-keystroke when scroll noise flips the active index. */}
+          {SCENES.map((scene, i) => {
+            const active = i === index;
+            return (
+              <motion.div
+                key={scene.key}
+                className="absolute inset-0 pt-14"
+                initial={false}
+                animate={{ opacity: active ? 1 : 0 }}
+                transition={{ duration: 0.35 }}
+                style={{
+                  pointerEvents: active ? "auto" : "none",
+                  zIndex: active ? 2 : 1,
+                }}
+                aria-hidden={!active}
+              >
+                {scene.render()}
+              </motion.div>
+            );
+          })}
         </DeviceFrame>
 
         {/* scene indicator */}
@@ -71,9 +75,9 @@ export function Showcase() {
                 width: i === index ? 22 : 8,
                 background:
                   i === index
-                    ? "oklch(0.85 0.15 305)"
+                    ? "oklch(0.85 0.15 145)"
                     : "oklch(1 0 0 / 0.25)",
-                boxShadow: i === index ? "0 0 12px oklch(0.72 0.22 305)" : "none",
+                boxShadow: i === index ? "0 0 12px oklch(0.72 0.22 145)" : "none",
               }}
             />
           ))}

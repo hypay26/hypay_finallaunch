@@ -47,8 +47,8 @@ export function DottedGlobe({ size = 620, rings = 26, perRing = 90 }: Props) {
         className="absolute inset-0 rounded-full"
         style={{
           boxShadow:
-            "inset 0 0 60px oklch(0.72 0.22 305 / 0.55), 0 0 90px oklch(0.62 0.24 300 / 0.5)",
-          border: "1px solid oklch(0.72 0.22 305 / 0.35)",
+            "inset 0 0 60px oklch(0.72 0.22 145 / 0.55), 0 0 90px oklch(0.62 0.24 145 / 0.5)",
+          border: "1px solid oklch(0.72 0.22 145 / 0.35)",
         }}
       />
       <motion.svg
@@ -65,7 +65,7 @@ export function DottedGlobe({ size = 620, rings = 26, perRing = 90 }: Props) {
             cx={d.x}
             cy={d.y}
             r={d.r}
-            fill="oklch(0.85 0.15 305)"
+            fill="oklch(0.85 0.15 145)"
             opacity={d.o}
           />
         ))}

@@ -33,8 +33,8 @@ export function OrbitArc({
     >
       <defs>
         <linearGradient id={`${pathId}-grad`} x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="oklch(0.85 0.15 305)" stopOpacity="0" />
-          <stop offset="60%" stopColor="oklch(0.9 0.15 305)" stopOpacity="1" />
+          <stop offset="0%" stopColor="oklch(0.85 0.15 145)" stopOpacity="0" />
+          <stop offset="60%" stopColor="oklch(0.9 0.15 145)" stopOpacity="1" />
           <stop offset="100%" stopColor="white" stopOpacity="1" />
         </linearGradient>
         <path
@@ -47,7 +47,7 @@ export function OrbitArc({
       <use
         href={`#${pathId}`}
         fill="none"
-        stroke="oklch(0.72 0.22 305 / 0.25)"
+        stroke="oklch(0.72 0.22 145 / 0.25)"
         strokeWidth="1"
       />
 
@@ -66,10 +66,10 @@ export function OrbitArc({
           repeat: Infinity,
           ease: "linear",
         }}
-        style={{ filter: "drop-shadow(0 0 6px oklch(0.85 0.15 305))" }}
+        style={{ filter: "drop-shadow(0 0 6px oklch(0.85 0.15 145))" }}
       />
 
-      <circle r="5" fill="white" style={{ filter: "drop-shadow(0 0 8px oklch(0.9 0.15 305))" }}>
+      <circle r="5" fill="white" style={{ filter: "drop-shadow(0 0 8px oklch(0.9 0.15 145))" }}>
         <animateMotion dur={`${duration}s`} repeatCount="indefinite" begin={`${delay}s`}>
           <mpath href={`#${pathId}`} />
         </animateMotion>

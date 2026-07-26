@@ -41,8 +41,8 @@ function RouteMap() {
     >
       <defs>
         <linearGradient id="route-grad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="oklch(0.85 0.15 305)" stopOpacity="0" />
-          <stop offset="60%" stopColor="oklch(0.9 0.15 305)" stopOpacity="1" />
+          <stop offset="0%" stopColor="oklch(0.85 0.15 145)" stopOpacity="0" />
+          <stop offset="60%" stopColor="oklch(0.9 0.15 145)" stopOpacity="1" />
           <stop offset="100%" stopColor="white" stopOpacity="1" />
         </linearGradient>
         <path id="route-path" d={d} />
@@ -52,7 +52,7 @@ function RouteMap() {
       <use
         href="#route-path"
         fill="none"
-        stroke="oklch(0.72 0.22 305 / 0.25)"
+        stroke="oklch(0.72 0.22 145 / 0.25)"
         strokeWidth="1"
       />
 
@@ -67,14 +67,14 @@ function RouteMap() {
         initial={{ strokeDashoffset: 1040 }}
         animate={{ strokeDashoffset: 0 }}
         transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-        style={{ filter: "drop-shadow(0 0 6px oklch(0.85 0.15 305))" }}
+        style={{ filter: "drop-shadow(0 0 6px oklch(0.85 0.15 145))" }}
       />
 
       {/* traveling dot */}
       <circle
         r="4"
         fill="white"
-        style={{ filter: "drop-shadow(0 0 8px oklch(0.9 0.15 305))" }}
+        style={{ filter: "drop-shadow(0 0 8px oklch(0.9 0.15 145))" }}
       >
         <animateMotion dur="5s" repeatCount="indefinite">
           <mpath href="#route-path" />
@@ -88,15 +88,15 @@ function RouteMap() {
             cx={n.x}
             cy={n.y}
             r="3"
-            fill="oklch(0.9 0.15 305)"
-            style={{ filter: "drop-shadow(0 0 6px oklch(0.9 0.15 305))" }}
+            fill="oklch(0.9 0.15 145)"
+            style={{ filter: "drop-shadow(0 0 6px oklch(0.9 0.15 145))" }}
           />
           <circle
             cx={n.x}
             cy={n.y}
             r="3"
             fill="none"
-            stroke="oklch(0.85 0.15 305)"
+            stroke="oklch(0.85 0.15 145)"
             strokeWidth="1.2"
             opacity="0.6"
           >
@@ -165,7 +165,7 @@ export function EmpowerStore() {
               className="pointer-events-none absolute inset-0 rounded-full"
               style={{
                 background:
-                  "radial-gradient(ellipse at 50% 50%, oklch(0.72 0.22 305 / 0.25), transparent 70%)",
+                  "radial-gradient(ellipse at 50% 50%, oklch(0.72 0.22 145 / 0.25), transparent 70%)",
                 filter: "blur(20px)",
               }}
             />

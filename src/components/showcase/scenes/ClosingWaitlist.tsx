@@ -2,7 +2,7 @@ import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { useState } from "react";
 import { DottedGlobe } from "../primitives/DottedGlobe";
 import { OrbitArc } from "../primitives/OrbitArc";
-import { supabase } from "@/integrations/supabase/client";
+import { submitWaitlistEmail } from "@/lib/google-sheets";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -34,25 +34,25 @@ export function ClosingWaitlist() {
     }
     setStatus("submitting");
     setErrorMsg("");
-    const { error } = await supabase.from("waitlist_emails").insert({ email: trimmed });
-    if (error) {
-      // 23505 = unique_violation → already on the list; treat as success
-      if (error.code === "23505") {
+    try {
+      const result = await submitWaitlistEmail({
+        data: { email: trimmed },
+      });
+
+      if (result.success) {
         setStatus("success");
-        return;
       }
+    } catch (err: any) {
       setStatus("error");
-      setErrorMsg("Something went wrong. Try again in a moment.");
-      return;
+      setErrorMsg(err.message || "Something went wrong.");
     }
-    setStatus("success");
   }
 
   return (
     <div className="relative flex h-full w-full items-center justify-center">
       {/* globe layer — reused from hero */}
       <motion.div
-        className="absolute inset-0 flex items-center justify-center"
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 1.05, opacity: 0 }}
@@ -67,7 +67,7 @@ export function ClosingWaitlist() {
       </motion.div>
 
       <motion.div
-        className="relative z-10 mx-auto max-w-[560px] px-6 text-center"
+        className="relative z-30 pointer-events-auto mx-auto max-w-[560px] px-6 text-center"
         variants={container}
         initial="initial"
         animate="animate"
@@ -99,8 +99,8 @@ export function ClosingWaitlist() {
                 transition={{ duration: 0.4, ease: EASE }}
                 className="rounded-full border px-5 py-3 text-[13px] text-foreground/90 backdrop-blur-xl"
                 style={{
-                  background: "oklch(0.22 0.03 275 / 0.8)",
-                  borderColor: "oklch(0.85 0.15 305 / 0.4)",
+                  background: "oklch(0.22 0.03 145 / 0.8)",
+                  borderColor: "oklch(0.85 0.15 145 / 0.4)",
                   boxShadow: "var(--shadow-glow)",
                 }}
               >
@@ -113,9 +113,9 @@ export function ClosingWaitlist() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="flex items-center gap-1.5 rounded-full border p-1 backdrop-blur-xl"
+                className="relative z-40 pointer-events-auto flex items-center gap-1.5 rounded-full border p-1 backdrop-blur-xl"
                 style={{
-                  background: "oklch(0.22 0.03 275 / 0.7)",
+                  background: "oklch(0.22 0.03 145 / 0.7)",
                   borderColor: "oklch(1 0 0 / 0.12)",
                 }}
               >
@@ -137,8 +137,8 @@ export function ClosingWaitlist() {
                   disabled={status === "submitting"}
                   className="whitespace-nowrap rounded-full px-4 py-2 text-[12px] font-medium disabled:opacity-60"
                   style={{
-                    background: "oklch(0.97 0.005 270)",
-                    color: "oklch(0.16 0.02 275)",
+                    background: "oklch(0.97 0.005 145)",
+                    color: "oklch(0.16 0.02 145)",
                   }}
                 >
                   {status === "submitting" ? "Joining…" : "Get Early Access →"}
