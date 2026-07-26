@@ -44,25 +44,15 @@ export function Showcase() {
           {/* Keep every scene mounted; cross-fade by opacity so interactive
               elements (e.g. the waitlist email input) don't get unmounted
               mid-keystroke when scroll noise flips the active index. */}
-          {SCENES.map((scene, i) => {
-            const active = i === index;
-            return (
-              <motion.div
-                key={scene.key}
-                className="absolute inset-0 pt-14"
-                initial={false}
-                animate={{ opacity: active ? 1 : 0 }}
-                transition={{ duration: 0.35 }}
-                style={{
-                  pointerEvents: active ? "auto" : "none",
-                  zIndex: active ? 2 : 1,
-                }}
-                aria-hidden={!active}
-              >
-                {scene.render()}
-              </motion.div>
-            );
-          })}
+          <motion.div
+            key={SCENES[index].key}
+            className="absolute inset-0 z-20 pt-14"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.35 }}
+          >
+            {SCENES[index].render()}
+          </motion.div>
         </DeviceFrame>
 
         {/* scene indicator */}

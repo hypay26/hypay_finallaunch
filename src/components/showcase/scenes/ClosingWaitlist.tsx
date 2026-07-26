@@ -129,6 +129,7 @@ export function ClosingWaitlist() {
                   }}
                   placeholder="you@example.com"
                   className="flex-1 rounded-full bg-transparent px-4 py-2 text-[13px] text-foreground placeholder:text-muted-foreground focus:outline-none"
+                  style={{ caretColor: "oklch(0.85 0.15 145)" }}
                   disabled={status === "submitting"}
                   aria-label="Email address"
                 />

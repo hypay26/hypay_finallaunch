@@ -16,21 +16,19 @@ export function DeviceFrame({ children, progress }: Props) {
 
   return (
     <div
-      className="pointer-events-none absolute inset-0 flex items-center justify-center"
+      className="absolute inset-0 flex items-center justify-center"
       style={{ perspective: "2200px" }}
     >
       <motion.div
         className="relative"
         style={{
-          rotateY,
-          rotateX,
-          rotateZ,
-          scale,
-          transformStyle: "preserve-3d",
           width: "min(1100px, 82vw)",
           aspectRatio: "16 / 10",
+          pointerEvents: "auto",
         }}
       >
+
+
         {/* device shadow */}
         <div
           className="absolute inset-x-10 -bottom-16 h-24 rounded-[100%] blur-3xl"
@@ -39,7 +37,7 @@ export function DeviceFrame({ children, progress }: Props) {
 
         {/* bezel */}
         <div
-          className="absolute inset-0 rounded-[28px] p-[10px]"
+          className="pointer-events-none absolute inset-0 rounded-[28px] p-[10px]"
           style={{
             background:
               "linear-gradient(135deg, oklch(0.28 0.02 145), oklch(0.14 0.015 145))",
