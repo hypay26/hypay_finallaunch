@@ -44,7 +44,7 @@ export function DeviceFrame({ children, progress }: Props) {
           className="pointer-events-none absolute inset-0 rounded-[28px] p-[10px]"
           style={{
             background:
-              "linear-gradient(135deg, oklch(0.28 0.02 145), oklch(0.14 0.015 145))",
+              "linear-gradient(135deg, oklch(0.16 0.01 145), oklch(0.06 0.005 145))",
             boxShadow:
               "var(--shadow-device), inset 0 1px 0 oklch(1 0 0 / 0.08), inset 0 -1px 0 oklch(0 0 0 / 0.6)",
           }}

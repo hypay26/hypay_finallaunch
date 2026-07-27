@@ -68,18 +68,18 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.16 0.02 145);
+  --background: oklch(15.907% 0.00002 271.152);
   --foreground: oklch(0.97 0.005 145);
-  --card: oklch(0.19 0.022 145);
+  --card: oklch(28.094% 0.00003 271.152);
   --card-foreground: oklch(0.97 0.005 145);
-  --popover: oklch(0.19 0.022 145);
+  --popover: oklch(0.07 0.01 145);
   --popover-foreground: oklch(0.97 0.005 145);
   --primary: oklch(0.62 0.24 145);
   --primary-foreground: oklch(0.98 0.005 145);
   --primary-glow: oklch(0.72 0.22 145);
-  --secondary: oklch(0.24 0.03 145);
+  --secondary: oklch(0.12 0.015 145);
   --secondary-foreground: oklch(0.97 0.005 145);
-  --muted: oklch(0.22 0.025 145);
+  --muted: oklch(0.12 0.015 145);
   --muted-foreground: oklch(0.68 0.02 145);
   --accent: oklch(0.62 0.24 145);
   --accent-foreground: oklch(0.98 0.005 145);
@@ -93,9 +93,9 @@
   --font-body: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
 
   --gradient-globe: radial-gradient(circle at 50% 50%, oklch(0.72 0.22 145 / 0.6) 0%, oklch(0.5 0.25 145 / 0.35) 45%, transparent 72%);
-  --gradient-screen: linear-gradient(135deg, oklch(0.18 0.025 145) 0%, oklch(0.14 0.02 145) 100%);
-  --gradient-studio: radial-gradient(ellipse at 50% 40%, oklch(0.22 0.03 145) 0%, oklch(0.1 0.015 145) 65%);
-  --shadow-device: 0 60px 120px -30px oklch(0 0 0 / 0.7), 0 30px 60px -20px oklch(0.4 0.2 145 / 0.25);
+  --gradient-screen: linear-gradient(135deg, oklch(0.04 0.008 145) 0%, oklch(0.02 0.005 145) 100%);
+  --gradient-studio: radial-gradient(ellipse at 50% 40%, oklch(21.342% 0.00002 271.152) 0%, oklch(0.015 0.003 145) 65%);
+  --shadow-device: 0 60px 120px -30px oklch(0 0 0 / 0.9), 0 30px 60px -20px oklch(0.4 0.2 145 / 0.25);
   --shadow-glow: 0 0 80px oklch(0.62 0.24 145 / 0.45);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -113,7 +113,7 @@
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
+  --background: oklch(24.287% 0.00245 248.187);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);
   --card-foreground: oklch(0.984 0.003 247.858);
@@ -159,7 +159,10 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }

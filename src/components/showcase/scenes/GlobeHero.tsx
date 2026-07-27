@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { DottedGlobe } from "../primitives/DottedGlobe";
-import { NotificationCard } from "../primitives/NotificationCard";
+
 import { OrbitArc } from "../primitives/OrbitArc";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -58,12 +58,7 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
             >
               Join the Waitlist →
             </button>
-            <button
-              className="w-full sm:w-auto rounded-full border px-5 py-3 sm:px-4 sm:py-2 text-[13px] sm:text-[12px]"
-              style={{ borderColor: "oklch(1 0 0 / 0.15)" }}
-            >
-              Contact Sales →
-            </button>
+
           </motion.div>
         </motion.div>
 
@@ -91,7 +86,7 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
-              <NotificationCard />
+
             </motion.div>
           )}
         </AnimatePresence>
@@ -149,24 +144,10 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
             >
               Join the Waitlist →
             </button>
-            <button
-              className="rounded-full border px-4 py-2 text-[12px]"
-              style={{ borderColor: "oklch(1 0 0 / 0.15)" }}
-            >
-              Contact Sales →
-            </button>
+
           </motion.div>
 
-          <AnimatePresence>
-            {withNotification && (
-              <motion.div
-                key="notif"
-                className="mt-10 flex justify-center"
-              >
-                <NotificationCard />
-              </motion.div>
-            )}
-          </AnimatePresence>
+
         </motion.div>
       </div>
     </div>

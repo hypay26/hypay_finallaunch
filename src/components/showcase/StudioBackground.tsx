@@ -10,8 +10,8 @@ export function StudioBackground() {
         className="absolute -left-24 top-1/3 h-[380px] w-[280px] rounded-[36px]"
         style={{
           background:
-            "linear-gradient(135deg, oklch(0.14 0.02 145), oklch(0.09 0.015 145))",
-          boxShadow: "inset 0 0 40px oklch(0 0 0 / 0.6), 0 40px 80px oklch(0 0 0 / 0.4)",
+            "linear-gradient(135deg, oklch(0.06 0.008 145), oklch(0.02 0.003 145))",
+          boxShadow: "inset 0 0 40px oklch(0 0 0 / 0.8), 0 40px 80px oklch(0 0 0 / 0.6)",
         }}
       >
         <div className="absolute inset-6 rounded-2xl border" style={{ borderColor: "oklch(1 0 0 / 0.03)" }} />
@@ -26,8 +26,8 @@ export function StudioBackground() {
         className="absolute -right-32 -top-16 h-[520px] w-[420px] rounded-[28px]"
         style={{
           background:
-            "linear-gradient(215deg, oklch(0.15 0.02 145), oklch(0.09 0.015 145))",
-          boxShadow: "inset 0 0 40px oklch(0 0 0 / 0.6), 0 40px 80px oklch(0 0 0 / 0.4)",
+            "linear-gradient(215deg, oklch(0.06 0.008 145), oklch(0.02 0.003 145))",
+          boxShadow: "inset 0 0 40px oklch(0 0 0 / 0.8), 0 40px 80px oklch(0 0 0 / 0.6)",
         }}
       />
 
@@ -36,8 +36,8 @@ export function StudioBackground() {
         className="absolute -bottom-20 left-1/2 h-[220px] w-[520px] -translate-x-1/2 rounded-[32px]"
         style={{
           background:
-            "linear-gradient(180deg, oklch(0.16 0.02 145), oklch(0.09 0.015 145))",
-          boxShadow: "inset 0 0 40px oklch(0 0 0 / 0.6), 0 40px 80px oklch(0 0 0 / 0.5)",
+            "linear-gradient(180deg, oklch(0.07 0.008 145), oklch(0.02 0.003 145))",
+          boxShadow: "inset 0 0 40px oklch(0 0 0 / 0.8), 0 40px 80px oklch(0 0 0 / 0.7)",
         }}
       />
 

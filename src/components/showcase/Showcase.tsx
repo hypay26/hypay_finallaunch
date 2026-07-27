@@ -1,5 +1,5 @@
 import { useScroll, useTransform, motion, useMotionValueEvent } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { DeviceFrame } from "./DeviceFrame";
 import { StudioBackground } from "./StudioBackground";
 import { ScreenChrome } from "./ScreenChrome";
@@ -7,16 +7,92 @@ import { GlobeHero } from "./scenes/GlobeHero";
 import { GlobalAvailability } from "./scenes/GlobalAvailability";
 import { EmpowerStore } from "./scenes/EmpowerStore";
 import { InNumbers } from "./scenes/InNumbers";
-import { AboutUs } from "./scenes/AboutUs";
+import { AboutCompany, AboutProduct } from "./scenes/AboutUs";
 import { ClosingWaitlist } from "./scenes/ClosingWaitlist";
 import { useIsTabletOrBelow } from "@/hooks/use-screen-size";
+
+function AnimatedScrollHint() {
+  const [isScrolling, setIsScrolling] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolling(true);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => {
+        setIsScrolling(false);
+      }, 400);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  return (
+    <div className="pointer-events-none absolute right-8 sm:right-10 top-1/2 z-30 flex -translate-y-1/2 flex-col items-center gap-2">
+      <div className="flex flex-col items-center -space-y-1">
+        {[0, 1, 2].map((idx) => (
+          <motion.svg
+            key={idx}
+            width="24"
+            height="15"
+            viewBox="0 0 24 15"
+            fill="none"
+            animate={
+              isScrolling
+                ? {
+                    opacity: [0.2, 1, 0.2],
+                    y: [0, 5, 10],
+                  }
+                : {
+                    opacity: [0.5, 1, 0.5],
+                    y: [0, 4, 0],
+                  }
+            }
+            transition={
+              isScrolling
+                ? {
+                    duration: 0.7,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: idx * 0.14,
+                  }
+                : {
+                    duration: 1.6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: idx * 0.18,
+                  }
+            }
+            style={{
+              color: "oklch(0.85 0.15 145)",
+              filter: "drop-shadow(0 0 8px oklch(0.72 0.22 145 / 0.85))",
+            }}
+          >
+            <path
+              d="M2 2L12 12L22 2"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </motion.svg>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const SCENES = [
   { key: "hero", render: () => <GlobeHero withNotification /> },
   { key: "availability", render: () => <GlobalAvailability /> },
   { key: "problem", render: () => <EmpowerStore /> },
   { key: "numbers", render: () => <InNumbers /> },
-  { key: "about", render: () => <AboutUs /> },
+  { key: "about-company", render: () => <AboutCompany /> },
+  { key: "about-product", render: () => <AboutProduct /> },
   { key: "waitlist", render: () => <ClosingWaitlist /> },
 ] as const;
 
@@ -70,10 +146,8 @@ function DesktopShowcase() {
           ))}
         </div>
 
-        {/* scroll hint */}
-        <div className="pointer-events-none absolute right-6 top-1/2 z-30 -translate-y-1/2 rotate-90 text-[10px] tracking-[0.3em] text-muted-foreground">
-          SCROLL
-        </div>
+        {/* scroll hint with responsive animated arrows */}
+        <AnimatedScrollHint />
       </div>
     </div>
   );
@@ -97,7 +171,7 @@ function MobileShowcase() {
       <header
         className="sticky top-0 z-50 flex items-center justify-between px-5 py-3 backdrop-blur-md"
         style={{
-          background: "oklch(0.16 0.02 145 / 0.85)",
+          background: "oklch(0.04 0.008 145 / 0.9)",
           borderBottom: "1px solid oklch(1 0 0 / 0.07)",
         }}
       >
