@@ -166,15 +166,15 @@ export function ClosingWaitlist() {
           transition={{ duration: 0.9, ease: EASE }}
         >
           <div className="relative">
-            <DottedGlobe size={640} />
+            <DottedGlobe size={500} />
             <div className="pointer-events-none absolute inset-0">
-              <OrbitArc size={640} rx={340} ry={90} rotate={-14} duration={5} />
+              <OrbitArc size={500} rx={270} ry={75} rotate={-14} duration={5} />
             </div>
           </div>
         </motion.div>
 
         <motion.div
-          className="relative z-30 pointer-events-auto mx-auto max-w-[560px] px-6 text-center"
+          className="relative z-30 pointer-events-auto mx-auto max-w-[540px] px-6 text-center"
           variants={container}
           initial="initial"
           animate="animate"
@@ -182,7 +182,7 @@ export function ClosingWaitlist() {
         >
           <motion.h1
             variants={item}
-            className="text-glow text-[64px] font-medium leading-[1.02] tracking-tight"
+            className="text-glow text-[42px] sm:text-[52px] xl:text-[60px] font-medium leading-[1.04] tracking-tight"
           >
             Be first to fly
             <br />

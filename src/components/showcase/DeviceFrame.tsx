@@ -20,9 +20,9 @@ export function DeviceFrame({ children, progress }: Props) {
       style={{ perspective: "2200px" }}
     >
       <motion.div
-        className="relative"
+        className="relative max-h-[76vh] max-w-[84vw]"
         style={{
-          width: "min(1100px, 82vw)",
+          width: "min(980px, 82vw, 102vh)",
           aspectRatio: "16 / 10",
           pointerEvents: "auto",
           rotateX,
