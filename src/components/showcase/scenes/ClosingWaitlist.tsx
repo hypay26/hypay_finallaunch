@@ -49,7 +49,7 @@ export function ClosingWaitlist() {
   }
 
   return (
-    <div className="relative w-full lg:h-full">
+    <div className="relative h-full w-full">
       {/* ── Mobile / Tablet Layout (< lg) ── */}
       <div className="flex lg:hidden w-full flex-col items-center pt-16 pb-24 px-6 text-center">
         <motion.div
@@ -157,7 +157,7 @@ export function ClosingWaitlist() {
 
       {/* ── Desktop Layout (lg+) ── */}
       <div className="hidden lg:flex relative h-full w-full items-center justify-center">
-        {/* globe layer */}
+        {/* globe layer — sized to fit within the device frame */}
         <motion.div
           className="pointer-events-none absolute inset-0 flex items-center justify-center"
           initial={{ scale: 0.9, opacity: 0 }}
@@ -166,9 +166,9 @@ export function ClosingWaitlist() {
           transition={{ duration: 0.9, ease: EASE }}
         >
           <div className="relative">
-            <DottedGlobe size={500} />
+            <DottedGlobe size={420} />
             <div className="pointer-events-none absolute inset-0">
-              <OrbitArc size={500} rx={270} ry={75} rotate={-14} duration={5} />
+              <OrbitArc size={420} rx={220} ry={60} rotate={-14} duration={5} />
             </div>
           </div>
         </motion.div>
@@ -182,7 +182,7 @@ export function ClosingWaitlist() {
         >
           <motion.h1
             variants={item}
-            className="text-glow text-[42px] sm:text-[52px] xl:text-[60px] font-medium leading-[1.04] tracking-tight"
+            className="text-glow text-[52px] font-medium leading-[1.04] tracking-tight"
           >
             Be first to fly
             <br />

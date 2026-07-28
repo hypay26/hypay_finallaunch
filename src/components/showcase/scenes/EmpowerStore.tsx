@@ -123,7 +123,7 @@ function RouteMap() {
 
 export function EmpowerStore() {
   return (
-    <div className="relative w-full lg:h-full overflow-hidden">
+    <div className="relative h-full w-full overflow-hidden">
       <Starfield count={80} className="opacity-70" />
 
       {/* ── Mobile / Tablet layout (< lg) ─────────────────────── */}
@@ -170,7 +170,7 @@ export function EmpowerStore() {
       </div>
 
       {/* ── Desktop layout (lg+) — original side-by-side ───────── */}
-      <div className="relative z-10 hidden lg:grid h-full grid-cols-12 items-center gap-6 px-8 pt-16 md:px-14">
+      <div className="relative z-10 hidden lg:grid h-full grid-cols-12 items-center gap-6 px-8 md:px-14">
         {/* left copy */}
         <motion.div className="col-span-5" variants={fadeUp} initial="initial" animate="animate" exit="exit">
           <div className="mb-3 text-[10px] tracking-[0.3em] text-muted-foreground">THE PROBLEM</div>

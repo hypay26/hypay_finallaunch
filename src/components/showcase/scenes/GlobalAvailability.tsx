@@ -11,7 +11,7 @@ const fadeUp: Variants = {
 
 export function GlobalAvailability() {
   return (
-    <div className="relative w-full lg:h-full">
+    <div className="relative h-full w-full">
       {/* ── Mobile / Tablet layout (< lg) ─────────────────────── */}
       <div className="flex lg:hidden flex-col items-center gap-8 px-6 pt-12 pb-16 text-center">
         {/* Globe */}
@@ -75,7 +75,7 @@ export function GlobalAvailability() {
       </div>
 
       {/* ── Desktop layout (lg+) — original 3-col grid ─────────── */}
-      <div className="hidden lg:grid relative h-full w-full grid-cols-12 items-center gap-6 px-8 pt-16 md:px-14">
+      <div className="hidden lg:grid relative h-full w-full grid-cols-12 items-center gap-6 px-8 md:px-14">
         {/* left */}
         <motion.div
           className="col-span-4 flex flex-col gap-4"
@@ -103,10 +103,10 @@ export function GlobalAvailability() {
           transition={{ duration: 0.9, ease: EASE }}
         >
           <div className="relative">
-            <DottedGlobe size={320} perRing={60} rings={20} />
+            <DottedGlobe size={280} perRing={60} rings={20} />
             <div className="absolute inset-0" style={{ transform: "scale(1.15)" }}>
-              <OrbitArc size={320} rx={200} ry={55} rotate={-18} duration={4.5} />
-              <OrbitArc size={320} rx={200} ry={55} rotate={22} duration={5.5} reverse delay={1} />
+              <OrbitArc size={280} rx={170} ry={45} rotate={-18} duration={4.5} />
+              <OrbitArc size={280} rx={170} ry={45} rotate={22} duration={5.5} reverse delay={1} />
             </div>
           </div>
         </motion.div>

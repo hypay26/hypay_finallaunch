@@ -1,6 +1,5 @@
-import { AnimatePresence, motion, type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { DottedGlobe } from "../primitives/DottedGlobe";
-
 import { OrbitArc } from "../primitives/OrbitArc";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -22,7 +21,7 @@ const item: Variants = {
 
 export function GlobeHero({ withNotification = false }: { withNotification?: boolean }) {
   return (
-    <div className="relative w-full lg:h-full">
+    <div className="relative h-full w-full">
       {/* ── Mobile / Tablet Layout (< lg) ── */}
       <div className="flex lg:hidden w-full flex-col items-center pt-16 pb-12 px-6 text-center">
         <motion.div
@@ -58,7 +57,12 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
             >
               Join the Waitlist →
             </button>
-
+            <button
+              className="w-full sm:w-auto rounded-full border px-5 py-3 sm:px-4 sm:py-2 text-[13px] sm:text-[12px]"
+              style={{ borderColor: "oklch(1 0 0 / 0.15)" }}
+            >
+              Contact Sales →
+            </button>
           </motion.div>
         </motion.div>
 
@@ -77,24 +81,12 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
           </div>
         </motion.div>
 
-        <AnimatePresence>
-          {withNotification && (
-            <motion.div
-              key="notif"
-              className="relative z-40 mt-4 flex justify-center"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-            >
 
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
 
       {/* ── Desktop Layout (lg+) ── */}
       <div className="hidden lg:flex relative h-full w-full items-center justify-center">
-        {/* globe layer */}
+        {/* globe layer — sized to fit within the device frame (~560px tall) */}
         <motion.div
           className="pointer-events-none absolute inset-0 flex items-center justify-center"
           initial={{ scale: 0.9, opacity: 0 }}
@@ -103,9 +95,9 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="relative">
-            <DottedGlobe size={500} />
+            <DottedGlobe size={420} />
             <div className="pointer-events-none absolute inset-0">
-              <OrbitArc size={500} rx={270} ry={75} rotate={-14} duration={5} />
+              <OrbitArc size={420} rx={220} ry={60} rotate={-14} duration={5} />
             </div>
           </div>
         </motion.div>
@@ -120,7 +112,7 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
         >
           <motion.h1
             variants={item}
-            className="text-glow text-[42px] sm:text-[52px] xl:text-[60px] font-medium leading-[1.04] tracking-tight"
+            className="text-glow text-[52px] font-medium leading-[1.04] tracking-tight"
           >
             Move money without borders
           </motion.h1>
@@ -144,7 +136,12 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
             >
               Join the Waitlist →
             </button>
-
+            <button
+              className="rounded-full border px-4 py-2 text-[12px]"
+              style={{ borderColor: "oklch(1 0 0 / 0.15)" }}
+            >
+              Contact Sales →
+            </button>
           </motion.div>
 
 

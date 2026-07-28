@@ -34,17 +34,17 @@ const item: Variants = {
 
 export function InNumbers() {
   return (
-    <div className="relative w-full lg:h-full">
+    <div className="relative h-full w-full">
       <motion.div
-        className="flex flex-col px-6 pt-16 pb-16 lg:h-full lg:px-14 lg:pt-16 lg:pb-8"
+        className="flex h-full flex-col px-6 pt-4 pb-6 lg:px-14 lg:pt-4 lg:pb-6"
         variants={container}
         initial="initial"
         animate="animate"
         exit="exit"
       >
         {/* Header */}
-        <div className="flex items-end justify-between gap-4 mb-5">
-          <h2 className="text-[32px] sm:text-[38px] lg:text-[46px] font-medium leading-none tracking-tight">
+        <div className="flex items-end justify-between gap-4 mb-4">
+          <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-medium leading-none tracking-tight">
             In
             <br />
             Numbers
@@ -57,18 +57,18 @@ export function InNumbers() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 gap-4 my-auto sm:grid-cols-2 lg:grid-cols-12 lg:gap-6 items-stretch">
+        <div className="grid grid-cols-1 gap-4 flex-1 sm:grid-cols-2 lg:grid-cols-12 lg:gap-5 items-stretch">
           {/* Traditional Banks */}
           <motion.div
             variants={item}
-            className="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.02] p-5 opacity-60 backdrop-blur-sm lg:col-span-4 lg:p-6"
+            className="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.02] p-4 opacity-60 backdrop-blur-sm lg:col-span-4 lg:p-5"
           >
-            <div className="text-[9px] font-medium tracking-[0.25em] text-muted-foreground/60 uppercase mb-4">
+            <div className="text-[9px] font-medium tracking-[0.25em] text-muted-foreground/60 uppercase mb-3">
               Legacy Benchmarks
             </div>
-            <div className="flex flex-col gap-5 my-auto sm:gap-6">
+            <div className="flex flex-col gap-4 my-auto">
               {existingStats.map((s, idx) => (
-                <div key={idx} className="flex flex-col gap-1.5">
+                <div key={idx} className="flex flex-col gap-1">
                   <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground/60">
                     <span
                       className="inline-block h-2.5 w-2.5 rounded-full border"
@@ -79,7 +79,7 @@ export function InNumbers() {
                     />
                     {s.label}
                   </div>
-                  <div className="text-[28px] sm:text-[32px] lg:text-[38px] font-medium tracking-tight text-zinc-400">
+                  <div className="text-[26px] sm:text-[30px] lg:text-[34px] font-medium tracking-tight text-zinc-400">
                     {s.value}
                   </div>
                 </div>
@@ -90,15 +90,15 @@ export function InNumbers() {
           {/* HYPAY Advantage */}
           <motion.div
             variants={item}
-            className="flex flex-col justify-between rounded-2xl border border-emerald-500/25 bg-emerald-500/[0.04] p-5 opacity-100 backdrop-blur-md shadow-[0_0_35px_rgba(16,185,129,0.06)] lg:col-span-8 lg:p-6"
+            className="flex flex-col justify-between rounded-2xl border border-emerald-500/25 bg-emerald-500/[0.04] p-4 opacity-100 backdrop-blur-md shadow-[0_0_35px_rgba(16,185,129,0.06)] lg:col-span-8 lg:p-5"
           >
-            <div className="text-[9px] font-medium tracking-[0.25em] text-emerald-400/90 uppercase mb-4 flex items-center gap-2">
+            <div className="text-[9px] font-medium tracking-[0.25em] text-emerald-400/90 uppercase mb-3 flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#10b981]" />
               HYPAY Advantage
             </div>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-5 my-auto lg:gap-x-8 lg:gap-y-6">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-4 my-auto lg:gap-x-8 lg:gap-y-4">
               {hypayStats.map((s, idx) => (
-                <div key={idx} className="flex flex-col gap-1.5">
+                <div key={idx} className="flex flex-col gap-1">
                   <div className="flex items-center gap-1.5 text-[10px] text-zinc-200">
                     <span
                       className="inline-block h-2.5 w-2.5 rounded-full border"
@@ -110,7 +110,7 @@ export function InNumbers() {
                     />
                     {s.label}
                   </div>
-                  <div className="text-[28px] sm:text-[32px] lg:text-[42px] font-medium tracking-tight text-white">
+                  <div className="text-[26px] sm:text-[30px] lg:text-[36px] font-medium tracking-tight text-white">
                     {s.value}
                   </div>
                 </div>
