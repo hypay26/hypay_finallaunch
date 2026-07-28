@@ -39,10 +39,10 @@ export function GlobalAvailability() {
           exit="exit"
           className="flex flex-col items-center gap-2"
         >
-          <div className="text-[56px] sm:text-[72px] font-medium leading-none tracking-tight">
+          <div className="font-medium leading-none tracking-tight" style={{ fontSize: "var(--scene-title-lg)" }}>
             HIGH
           </div>
-          <p className="text-[13px] text-muted-foreground max-w-[260px]">
+          <p className="text-muted-foreground max-w-[260px]" style={{ fontSize: "var(--scene-body-md)" }}>
             average hidden markup travelers pay per transaction
           </p>
         </motion.div>
@@ -53,7 +53,8 @@ export function GlobalAvailability() {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="text-[13px] leading-relaxed text-muted-foreground max-w-[340px]"
+          className="leading-relaxed text-muted-foreground max-w-[340px]"
+          style={{ fontSize: "var(--scene-body-md)" }}
         >
           International wire transfers and card payments abroad are slow,
           expensive, and opaque. HYPAY is built to make moving money across
@@ -84,10 +85,10 @@ export function GlobalAvailability() {
           animate="animate"
           exit="exit"
         >
-          <div className="text-[64px] font-medium leading-none tracking-tight md:text-[80px]">
+          <div className="font-medium leading-none tracking-tight" style={{ fontSize: "var(--scene-title-lg)" }}>
             HIGH
           </div>
-          <p className="text-[13px] text-muted-foreground">
+          <p className="text-muted-foreground" style={{ fontSize: "var(--scene-body-md)" }}>
             average hidden markup
             <br />
             travelers pay per transaction
@@ -119,7 +120,7 @@ export function GlobalAvailability() {
           animate="animate"
           exit="exit"
         >
-          <p className="text-[11px] leading-relaxed text-muted-foreground md:text-[12px]">
+          <p className="leading-relaxed text-muted-foreground" style={{ fontSize: "var(--scene-body-md)" }}>
             International wire transfers and card payments abroad are slow,
             expensive, and opaque. HYPAY is built to make moving money across
             borders as simple as sending a message — transparent fees, instant

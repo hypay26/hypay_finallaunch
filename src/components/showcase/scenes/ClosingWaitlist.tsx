@@ -61,7 +61,8 @@ export function ClosingWaitlist() {
         >
           <motion.h1
             variants={item}
-            className="text-glow text-[40px] font-medium leading-[1.05] tracking-tight sm:text-[48px]"
+            className="text-glow font-medium leading-[1.05] tracking-tight"
+            style={{ fontSize: "var(--scene-title-lg)" }}
           >
             Be first to fly
             <br />
@@ -69,7 +70,8 @@ export function ClosingWaitlist() {
           </motion.h1>
           <motion.p
             variants={item}
-            className="mx-auto mt-4 text-[13px] leading-relaxed text-muted-foreground"
+            className="mx-auto mt-4 leading-relaxed text-muted-foreground"
+            style={{ fontSize: "var(--scene-body-md)" }}
           >
             Early access opens soon. Join the list and skip the line.
           </motion.p>
@@ -182,7 +184,8 @@ export function ClosingWaitlist() {
         >
           <motion.h1
             variants={item}
-            className="text-glow text-[52px] font-medium leading-[1.04] tracking-tight"
+            className="text-glow font-medium leading-[1.04] tracking-tight"
+            style={{ fontSize: "var(--scene-title-lg)" }}
           >
             Be first to fly
             <br />
@@ -190,7 +193,8 @@ export function ClosingWaitlist() {
           </motion.h1>
           <motion.p
             variants={item}
-            className="mx-auto mt-4 max-w-[440px] text-[14px] leading-relaxed text-muted-foreground"
+            className="mx-auto mt-4 max-w-[440px] leading-relaxed text-muted-foreground"
+            style={{ fontSize: "var(--scene-body-lg)" }}
           >
             Early access opens soon. Join the list and skip the line.
           </motion.p>

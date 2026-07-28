@@ -51,7 +51,7 @@ export function AboutCompany() {
             />
             The Company
           </div>
-          <h2 className="text-glow text-[26px] sm:text-[32px] font-medium leading-[1.1] tracking-tight">
+          <h2 className="text-glow font-medium leading-[1.1] tracking-tight" style={{ fontSize: "var(--scene-title-md)" }}>
             About Halith Technologies India Private Limited
           </h2>
           <p className="mt-3 max-w-[380px] text-[12px] sm:text-[13px] leading-relaxed text-muted-foreground">
@@ -102,7 +102,7 @@ export function AboutCompany() {
               />
               The Company
             </div>
-            <h2 className="text-glow text-[30px] xl:text-[36px] font-medium leading-[1.08] tracking-tight">
+            <h2 className="text-glow font-medium leading-[1.08] tracking-tight" style={{ fontSize: "var(--scene-title-md)" }}>
               About Halith Technologies India Private Limited
             </h2>
             <p className="mt-3.5 max-w-[500px] text-[13px] xl:text-[14px] leading-relaxed text-muted-foreground">
@@ -167,7 +167,7 @@ export function AboutProduct() {
             />
             The Product
           </div>
-          <h2 className="text-glow text-[30px] sm:text-[36px] font-medium leading-[1.1] tracking-tight">
+          <h2 className="text-glow font-medium leading-[1.1] tracking-tight" style={{ fontSize: "var(--scene-title-md)" }}>
             About HyPay
           </h2>
           <p className="mt-3 max-w-[380px] text-[12px] sm:text-[13px] leading-relaxed text-muted-foreground">
@@ -232,7 +232,7 @@ export function AboutProduct() {
               />
               The Product
             </div>
-            <h2 className="text-glow text-[34px] xl:text-[40px] font-medium leading-[1.08] tracking-tight">
+            <h2 className="text-glow font-medium leading-[1.08] tracking-tight" style={{ fontSize: "var(--scene-title-lg)" }}>
               About HyPay
             </h2>
             <p className="mt-3.5 max-w-[500px] text-[13px] xl:text-[14px] leading-relaxed text-muted-foreground">

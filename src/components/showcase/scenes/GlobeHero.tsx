@@ -33,13 +33,15 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
         >
           <motion.h1
             variants={item}
-            className="text-glow text-[38px] font-medium leading-[1.05] tracking-tight sm:text-[44px]"
+            className="text-glow font-medium leading-[1.05] tracking-tight"
+            style={{ fontSize: "var(--scene-title-lg)" }}
           >
             Move money without borders
           </motion.h1>
           <motion.p
             variants={item}
-            className="mx-auto mt-4 max-w-[340px] sm:max-w-[440px] text-[13px] leading-relaxed text-muted-foreground"
+            className="mx-auto mt-4 max-w-[340px] sm:max-w-[440px] leading-relaxed text-muted-foreground"
+            style={{ fontSize: "var(--scene-body-lg)" }}
           >
             Spend, pay, and move money across borders — instantly, transparently,
             and without the hidden fees you're losing today.
@@ -112,13 +114,15 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
         >
           <motion.h1
             variants={item}
-            className="text-glow text-[52px] font-medium leading-[1.04] tracking-tight"
+            className="text-glow font-medium leading-[1.04] tracking-tight"
+            style={{ fontSize: "var(--scene-title-lg)" }}
           >
             Move money without borders
           </motion.h1>
           <motion.p
             variants={item}
-            className="mx-auto mt-4 max-w-[440px] text-[14px] leading-relaxed text-muted-foreground"
+            className="mx-auto mt-4 max-w-[440px] leading-relaxed text-muted-foreground"
+            style={{ fontSize: "var(--scene-body-lg)" }}
           >
             Spend, pay, and move money across borders — instantly, transparently,
             and without the hidden fees you're losing today.

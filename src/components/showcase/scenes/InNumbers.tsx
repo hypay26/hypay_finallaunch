@@ -44,12 +44,12 @@ export function InNumbers() {
       >
         {/* Header */}
         <div className="flex items-end justify-between gap-4 mb-4">
-          <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-medium leading-none tracking-tight">
+          <h2 className="font-medium leading-none tracking-tight" style={{ fontSize: "var(--scene-title-lg)" }}>
             In
             <br />
             Numbers
           </h2>
-          <div className="pb-1 text-right text-[10px] tracking-[0.3em] text-muted-foreground">
+          <div className="pb-1 text-right tracking-[0.3em] text-muted-foreground" style={{ fontSize: "var(--scene-label)" }}>
             THE REAL COST OF
             <br />
             CROSS-BORDER SPENDING
@@ -63,13 +63,13 @@ export function InNumbers() {
             variants={item}
             className="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.02] p-4 opacity-60 backdrop-blur-sm lg:col-span-4 lg:p-5"
           >
-            <div className="text-[9px] font-medium tracking-[0.25em] text-muted-foreground/60 uppercase mb-3">
+            <div className="font-medium tracking-[0.25em] text-muted-foreground/60 uppercase mb-3" style={{ fontSize: "var(--scene-label)" }}>
               Legacy Benchmarks
             </div>
             <div className="flex flex-col gap-4 my-auto">
               {existingStats.map((s, idx) => (
                 <div key={idx} className="flex flex-col gap-1">
-                  <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground/60">
+                  <div className="flex items-center gap-1.5 text-muted-foreground/60" style={{ fontSize: "var(--scene-label)" }}>
                     <span
                       className="inline-block h-2.5 w-2.5 rounded-full border"
                       style={{
@@ -79,7 +79,7 @@ export function InNumbers() {
                     />
                     {s.label}
                   </div>
-                  <div className="text-[26px] sm:text-[30px] lg:text-[34px] font-medium tracking-tight text-zinc-400">
+                  <div className="font-medium tracking-tight text-zinc-400" style={{ fontSize: "var(--scene-stat-lg)" }}>
                     {s.value}
                   </div>
                 </div>
@@ -92,14 +92,14 @@ export function InNumbers() {
             variants={item}
             className="flex flex-col justify-between rounded-2xl border border-emerald-500/25 bg-emerald-500/[0.04] p-4 opacity-100 backdrop-blur-md shadow-[0_0_35px_rgba(16,185,129,0.06)] lg:col-span-8 lg:p-5"
           >
-            <div className="text-[9px] font-medium tracking-[0.25em] text-emerald-400/90 uppercase mb-3 flex items-center gap-2">
+            <div className="font-medium tracking-[0.25em] text-emerald-400/90 uppercase mb-3 flex items-center gap-2" style={{ fontSize: "var(--scene-label)" }}>
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#10b981]" />
               HYPAY Advantage
             </div>
             <div className="grid grid-cols-2 gap-x-6 gap-y-4 my-auto lg:gap-x-8 lg:gap-y-4">
               {hypayStats.map((s, idx) => (
                 <div key={idx} className="flex flex-col gap-1">
-                  <div className="flex items-center gap-1.5 text-[10px] text-zinc-200">
+                  <div className="flex items-center gap-1.5 text-zinc-200" style={{ fontSize: "var(--scene-label)" }}>
                     <span
                       className="inline-block h-2.5 w-2.5 rounded-full border"
                       style={{
@@ -110,7 +110,7 @@ export function InNumbers() {
                     />
                     {s.label}
                   </div>
-                  <div className="text-[26px] sm:text-[30px] lg:text-[36px] font-medium tracking-tight text-white">
+                  <div className="font-medium tracking-tight text-white" style={{ fontSize: "var(--scene-stat-xl)" }}>
                     {s.value}
                   </div>
                 </div>

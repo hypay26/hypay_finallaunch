@@ -19,7 +19,7 @@ export function DeviceFrame({ children, progress }: Props) {
       className="absolute inset-0 flex items-center justify-center"
       style={{ perspective: "2200px" }}
     >
-      <div className="device-frame-wrapper relative max-h-[76vh] max-w-[84vw]">
+      <div className="device-frame-wrapper relative max-h-[76vh] max-w-[84vw]" style={{ width: "min(980px, 82vw, 102vh)" }}>
         <motion.div
           className="relative h-full w-full"
           style={{
@@ -71,6 +71,7 @@ export function DeviceFrame({ children, progress }: Props) {
           </div>
         </div>
       </motion.div>
+      </div>
     </div>
   );
 }

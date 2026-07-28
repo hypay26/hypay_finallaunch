@@ -130,14 +130,14 @@ export function EmpowerStore() {
       <div className="relative z-10 flex lg:hidden flex-col items-center gap-12 px-6 pt-16 pb-20 text-center">
         <motion.div variants={fadeUp} initial="initial" animate="animate" exit="exit">
           <div className="mb-2 text-[10px] tracking-[0.3em] text-muted-foreground">THE PROBLEM</div>
-          <h2 className="text-[36px] sm:text-[44px] font-medium leading-[1.05] tracking-tight">
+          <h2 className="font-medium leading-[1.05] tracking-tight" style={{ fontSize: "var(--scene-title-lg)" }}>
             The old way of
             <br />
             paying abroad
             <br />
             is broken
           </h2>
-          <p className="mt-3 text-[13px] text-muted-foreground max-w-[340px] mx-auto">
+          <p className="mt-3 text-muted-foreground max-w-[340px] mx-auto" style={{ fontSize: "var(--scene-body-md)" }}>
             Cash, cards, and a dozen apps — each with its own fees, delays,
             and blind spots. Merchants wait days to get paid. Travelers overpay
             without knowing it. It's time for one app that just works, everywhere.
@@ -174,14 +174,14 @@ export function EmpowerStore() {
         {/* left copy */}
         <motion.div className="col-span-5" variants={fadeUp} initial="initial" animate="animate" exit="exit">
           <div className="mb-3 text-[10px] tracking-[0.3em] text-muted-foreground">THE PROBLEM</div>
-          <h2 className="text-[46px] font-medium leading-[1.02] tracking-tight md:text-[56px]">
+          <h2 className="font-medium leading-[1.02] tracking-tight" style={{ fontSize: "var(--scene-title-lg)" }}>
             The old way of
             <br />
             paying abroad
             <br />
             is broken
           </h2>
-          <p className="mt-4 max-w-[340px] text-[13px] text-muted-foreground">
+          <p className="mt-4 max-w-[340px] text-muted-foreground" style={{ fontSize: "var(--scene-body-md)" }}>
             Cash, cards, and a dozen apps — each with its own fees, delays,
             and blind spots. Merchants wait days to get paid. Travelers overpay
             without knowing it. It's time for one app that just works,
