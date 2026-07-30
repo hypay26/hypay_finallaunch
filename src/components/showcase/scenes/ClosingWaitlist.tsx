@@ -168,15 +168,15 @@ export function ClosingWaitlist() {
           transition={{ duration: 0.9, ease: EASE }}
         >
           <div className="relative">
-            <DottedGlobe size={420} />
+            <DottedGlobe size={520} />
             <div className="pointer-events-none absolute inset-0">
-              <OrbitArc size={420} rx={220} ry={60} rotate={-14} duration={5} />
+              <OrbitArc size={520} rx={270} ry={80} rotate={-14} duration={5} />
             </div>
           </div>
         </motion.div>
 
         <motion.div
-          className="relative z-30 pointer-events-auto mx-auto max-w-[540px] px-6 text-center"
+          className="relative z-30 pointer-events-auto mx-auto max-w-[520px] px-0 text-center"
           variants={container}
           initial="initial"
           animate="animate"

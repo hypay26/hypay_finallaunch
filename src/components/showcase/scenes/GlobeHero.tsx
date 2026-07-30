@@ -59,12 +59,7 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
             >
               Join the Waitlist →
             </button>
-            <button
-              className="w-full sm:w-auto rounded-full border px-5 py-3 sm:px-4 sm:py-2 text-[13px] sm:text-[12px]"
-              style={{ borderColor: "oklch(1 0 0 / 0.15)" }}
-            >
-              Contact Sales →
-            </button>
+           
           </motion.div>
         </motion.div>
 
@@ -97,16 +92,16 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="relative">
-            <DottedGlobe size={420} />
+            <DottedGlobe size={520} />
             <div className="pointer-events-none absolute inset-0">
-              <OrbitArc size={420} rx={220} ry={60} rotate={-14} duration={5} />
+              <OrbitArc size={520} rx={270} ry={80} rotate={-14} duration={5} />
             </div>
           </div>
         </motion.div>
 
         {/* text content */}
         <motion.div
-          className="relative z-30 pointer-events-auto mx-auto max-w-[540px] px-6 text-center"
+          className="relative z-30 pointer-events-auto mx-auto max-w-[520px] px-0 text-center"
           variants={container}
           initial="initial"
           animate="animate"
@@ -140,12 +135,7 @@ export function GlobeHero({ withNotification = false }: { withNotification?: boo
             >
               Join the Waitlist →
             </button>
-            <button
-              className="rounded-full border px-4 py-2 text-[12px]"
-              style={{ borderColor: "oklch(1 0 0 / 0.15)" }}
-            >
-              Contact Sales →
-            </button>
+           
           </motion.div>
 
 
