@@ -44,16 +44,21 @@ export function DeviceFrame({ children, progress }: Props) {
     return () => observer.disconnect();
   }, []);
 
+  const deviceWidth = "min(1100px, 90vw, 108vh)";
+
   return (
     <div
       className="absolute inset-0 flex items-center justify-center"
       style={{ perspective: "2200px" }}
     >
-      <div className="device-frame-wrapper relative max-h-[76vh] max-w-[84vw]" style={{ width: "min(980px, 82vw, 102vh)" }}>
+      <div
+        className="device-frame-wrapper relative max-h-[84vh] max-w-[90vw] sm:max-h-[86vh] lg:max-w-[92vw]"
+        style={{ width: deviceWidth }}
+      >
         <motion.div
           className="relative h-full w-full"
           style={{
-            width: "min(980px, 82vw, 102vh)",
+            width: deviceWidth,
             aspectRatio: "16 / 10",
             pointerEvents: "auto",
             rotateX,
